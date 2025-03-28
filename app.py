@@ -9,12 +9,12 @@ app = Flask(__name__)
 app.secret_key = 'your_secret_key_here'
 socketio = SocketIO(app)
 
-# دایرکتوری داده‌ها
+
 DATA_DIR = 'data'
 USERS_FILE = os.path.join(DATA_DIR, 'users.json')
 MESSAGES_FILE = os.path.join(DATA_DIR, 'messages.json')
 
-# ایجاد دایرکتوری داده‌ها اگر وجود نداشته باشد
+
 os.makedirs(DATA_DIR, exist_ok=True)
 
 # ایجاد فایل‌های JSON اگر وجود نداشته باشند
