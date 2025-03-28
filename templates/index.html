@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="chat-container">
+    <header class="chat-header">
+        <h1>باهم‌چت</h1>
+        <a href="{{ url_for('logout') }}" class="btn btn-outline-danger">خروج</a>
+    </header>
+    
+    <div class="chat-messages" id="chat-messages">
+        {% for message in messages %}
+        <div class="message">
+            <span class="message-username">{{ message.username }}</span>
+            <span class="message-text">{{ message.text }}</span>
+            <span class="message-time">{{ message.timestamp }}</span>
+        </div>
+        {% endfor %}
+    </div>
+    
+    <div class="chat-input">
+        <input type="text" id="message-input" placeholder="پیام خود را بنویسید..." class="form-control">
+        <button id="send-button" class="btn btn-primary">ارسال</button>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/chat.js') }}"></script>
+{% endblock %}
